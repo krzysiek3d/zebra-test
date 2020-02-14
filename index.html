@@ -7,13 +7,9 @@
     />
     <title>DataWedge KeyEvent Demonstration</title>
     <style>
-      html,
-      body {
-        overflow-x: hidden;
-      }
-
       body {
         position: relative;
+        overflow-x: hidden;
         color: white;
         background-color: lightseagreen;
       }
@@ -34,9 +30,7 @@
   </head>
 
   <script>
-    const output = document.getElementById('output');
-
-    output.addEventListener('keypress', keypressHandler);
+    document.addEventListener('keypress', keypressHandler);
 
     function keypressHandler(e) {
       const output = document.getElementById('output');
