@@ -11,7 +11,7 @@
         position: relative;
         overflow-x: hidden;
         color: white;
-        background-color: lightseagreen;
+        background-color: yellow;
       }
 
       .wordwrap {
@@ -28,6 +28,20 @@
       }
     </style>
   </head>
+  <script>
+    const output = document.getElementById('output');
+
+    document.addEventListener('keypress', keypressHandler);
+
+    function keypressHandler(e) {
+      console.log('pressed: ' + e.keyCode);
+      const output = document.getElementById('output');
+      if (e.keyCode === 13)
+        //  Enter key from DataWedge
+        output.innerHTML += '<BR>';
+      else output.innerHTML += e.key;
+    }
+  </script>
   <body>
     <h1>DataWedge KeyEvent Demo</h1>
     <br />
@@ -36,18 +50,4 @@
     <h3>Output</h3>
     <div id="output" class="wordwrap"></div>
   </body>
-
-  <script>
-    const output = document.getElementById('output');
-
-    output.addEventListener('keypress', keypressHandler);
-
-    function keypressHandler(e) {
-      console.log('pressed: ' + e.keyCode);
-      if (e.keyCode === 13)
-        //  Enter key from DataWedge
-        output.innerHTML += '<BR>';
-      else output.innerHTML += e.key;
-    }
-  </script>
 </html>
