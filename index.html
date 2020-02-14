@@ -8,10 +8,11 @@
     <title>DataWedge KeyEvent Demonstration</title>
     <style>
       body {
-        position: relative;
-        overflow-x: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
         color: white;
-        background-color: yellow;
+        background-color: lightseagreen;
       }
 
       .wordwrap {
@@ -28,6 +29,13 @@
       }
     </style>
   </head>
+  <body>
+    <h1>DataWedge KeyEvent Demo</h1>
+    <br />
+    <p>Reload to clear page</p>
+    <h3>Output</h3>
+    <div id="output" class="wordwrap" tabindex="0"></div>
+  </body>
   <script>
     const output = document.getElementById('output');
 
@@ -35,19 +43,12 @@
 
     function keypressHandler(e) {
       console.log('pressed: ' + e.keyCode);
-      const output = document.getElementById('output');
-      if (e.keyCode === 13)
+      if (e.keyCode === 13) {
         //  Enter key from DataWedge
         output.innerHTML += '<BR>';
-      else output.innerHTML += e.key;
+      } else {
+        output.innerHTML += e.key;
+      }
     }
   </script>
-  <body>
-    <h1>DataWedge KeyEvent Demo</h1>
-    <br />
-    Reload to clear page
-    <p></p>
-    <h3>Output</h3>
-    <div id="output" class="wordwrap"></div>
-  </body>
 </html>
