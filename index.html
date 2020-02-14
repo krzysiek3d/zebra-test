@@ -28,20 +28,6 @@
       }
     </style>
   </head>
-
-  <script>
-    document.addEventListener('keypress', keypressHandler);
-
-    function keypressHandler(e) {
-      const output = document.getElementById('output');
-      console.log('pressed: ' + e.keyCode);
-      if (e.keyCode === 13)
-        //  Enter key from DataWedge
-        output.innerHTML += '<BR>';
-      else output.innerHTML += e.key;
-    }
-  </script>
-
   <body>
     <h1>DataWedge KeyEvent Demo</h1>
     <br />
@@ -50,4 +36,18 @@
     <h3>Output</h3>
     <div id="output" class="wordwrap"></div>
   </body>
+
+  <script>
+    const output = document.getElementById('output');
+
+    output.addEventListener('keypress', keypressHandler);
+
+    function keypressHandler(e) {
+      console.log('pressed: ' + e.keyCode);
+      if (e.keyCode === 13)
+        //  Enter key from DataWedge
+        output.innerHTML += '<BR>';
+      else output.innerHTML += e.key;
+    }
+  </script>
 </html>
