@@ -41,13 +41,13 @@
 
     document.addEventListener('keypress', keypressHandler);
 
-    function keypressHandler(e) {
-      console.log('pressed: ' + e.keyCode);
-      if (e.keyCode === 13) {
+    function keypressHandler(event) {
+      console.log('key pressed: ' + event.key);
+      if (event.key === 'Enter') {
         //  Enter key from DataWedge
-        output.innerHTML += '<BR>';
+        output.innerHTML += ' ENTER KEY <br/>';
       } else {
-        output.innerHTML += e.key;
+        output.innerHTML += event.key;
       }
     }
   </script>
