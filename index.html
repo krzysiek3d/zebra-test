@@ -42,13 +42,14 @@
     document.addEventListener('keypress', keypressHandler);
 
     function keypressHandler(event) {
-      console.log('key pressed: ' + event.key);
-      if (event.key === 'Enter') {
-        //  Enter key from DataWedge
-        output.innerHTML += ' ENTER KEY <br/>';
-      } else {
-        output.innerHTML += event.key;
-      }
+      // alert('key pressed: ' + event.key);
+      output.innerHTML += `KEY NAME: ${event.key} <br/>`;
+      // if (event.key === 'Enter') {
+      //   //  Enter key from DataWedge
+      //   output.innerHTML += ' ENTER KEY <br/>';
+      // } else {
+      //   output.innerHTML += event.key;
+      // }
     }
   </script>
 </html>
