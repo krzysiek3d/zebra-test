@@ -34,22 +34,29 @@
     <br />
     <p>Reload to clear page</p>
     <h3>Output</h3>
+    <div id="key">Key:</div>
+    <div id="keyCode">KeyCode:</div>
     <div id="output" class="wordwrap" tabindex="0"></div>
   </body>
   <script>
+    const key = document.getElementById('key');
+    const keyCode = document.getElementById('keyCode');
     const output = document.getElementById('output');
 
     document.addEventListener('keypress', keypressHandler);
 
-    function keypressHandler(event) {
-      // alert('key pressed: ' + event.key);
-      output.innerHTML += `KEY NAME: ${event.key} <br/>`;
-      // if (event.key === 'Enter') {
-      //   //  Enter key from DataWedge
-      //   output.innerHTML += ' ENTER KEY <br/>';
-      // } else {
-      //   output.innerHTML += event.key;
-      // }
+    function keypressHandler(e) {
+      console.log('pressed: ' + e.keyCode);
+      if (e.keyCode === 13) {
+        console.log('Key: ', e.key);
+        console.log('KeyCode: ', e.keyCode);
+        key.innerHTML += e.key;
+        keyCode.innerHTML += e.keyCode;
+        //  Enter key from DataWedge
+        output.innerHTML += '<BR>';
+      } else {
+        output.innerHTML += e.key;
+      }
     }
   </script>
 </html>
