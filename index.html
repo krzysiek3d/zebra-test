@@ -40,43 +40,44 @@
     <div id="output" class="wordwrap" tabindex="0"></div>
   </body>
   <script>
-    // const ENTER_KEY_CODE = 13;
-    // const MAX_INTERVAL_BETWEEN_EVENTS_IN_MS = 50;
+    const ENTER_KEY_CODE = 13;
+    const MAX_INTERVAL_BETWEEN_EVENTS_IN_MS = 50;
 
-    // const keyCode$ = Rx.Observable.fromEvent(document, 'keypress').pluck(
-    //   'keyCode'
-    // );
+    const keyCode$ = Rx.Observable.fromEvent(document, 'keypress').pluck(
+      'keyCode'
+    );
 
-    // const keyCodesBuffer$ = keyCode$
-    //   .buffer(keyCode$.debounce(MAX_INTERVAL_BETWEEN_EVENTS_IN_MS))
-    //   .filter(isFromScan);
+    const keyCodesBuffer$ = keyCode$.buffer(
+      keyCode$.debounce(MAX_INTERVAL_BETWEEN_EVENTS_IN_MS)
+    );
+    // .filter(isFromScan);
 
-    // function isFromScan(keyCodes) {
-    //   return (
-    //     keyCodes.length > 1 && keyCodes[keyCodes.length - 1] === ENTER_KEY_CODE
-    //   );
-    // }
-
-    // keyCodesBuffer$.subscribe(res => window.alert('CODES: ' + res));
-
-    const key = document.getElementById('key');
-    const keyCode = document.getElementById('keyCode');
-    const output = document.getElementById('output');
-
-    document.addEventListener('keypress', keypressHandler);
-
-    function keypressHandler(e) {
-      window.alert('Key: ' + e.key + ' KeyCode: ' + e.keyCode);
-      if (e.keyCode == 13) {
-        console.log('Key: ', e.key);
-        console.log('KeyCode: ', e.keyCode);
-        key.innerHTML += e.key;
-        keyCode.innerHTML += e.keyCode;
-        //  Enter key from DataWedge
-        output.innerHTML += '<BR>';
-      } else {
-        output.innerHTML += e.key;
-      }
+    function isFromScan(keyCodes) {
+      return (
+        keyCodes.length > 1 && keyCodes[keyCodes.length - 1] === ENTER_KEY_CODE
+      );
     }
+
+    keyCodesBuffer$.subscribe(res => window.alert('CODES: ' + res));
+
+    // const key = document.getElementById('key');
+    // const keyCode = document.getElementById('keyCode');
+    // const output = document.getElementById('output');
+
+    // document.addEventListener('keypress', keypressHandler);
+
+    // function keypressHandler(e) {
+    //   window.alert('Key: ' + e.key + ' KeyCode: ' + e.keyCode);
+    //   if (e.keyCode == 13) {
+    //     console.log('Key: ', e.key);
+    //     console.log('KeyCode: ', e.keyCode);
+    //     key.innerHTML += e.key;
+    //     keyCode.innerHTML += e.keyCode;
+    //     //  Enter key from DataWedge
+    //     output.innerHTML += '<BR>';
+    //   } else {
+    //     output.innerHTML += e.key;
+    //   }
+    // }
   </script>
 </html>
